@@ -13,8 +13,8 @@ String FirmwareVer = {
     "2.0"
 };
 
-#define URL_fw_Version "https://raw.githubusercontent.com/AhmadMahi/QuibbleUpdate/master/Quibbleupdate/bin-version.txt"
-#define URL_fw_Bin "https://raw.githubusercontent.com/AhmadMahi/QuibbleUpdate/master/Quibbleupdate/fw.bin"
+#define URL_fw_Version "https://raw.githubusercontent.com//VanSilver/OTA_TEST/main/bin-version.txt"
+#define URL_fw_Bin "https://raw.githubusercontent.com//VanSilver/OTA_TEST/main/fw.bin"
 
 void setup() {
 
