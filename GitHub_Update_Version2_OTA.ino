@@ -4,8 +4,8 @@
 #include <WiFiClientSecure.h>
 #include "cert.h"
 
-const char * ssid = "Al-Imaad";
-const char * wifiPassword = "7760@_Ahmad";
+const char * ssid = "LOVAD L1";
+const char * wifiPassword = "Lovadhcm@2023";
 int status = WL_IDLE_STATUS;
 int incomingByte;
 
@@ -13,8 +13,8 @@ String FirmwareVer = {
     "2.0"
 };
 
-#define URL_fw_Version "https://raw.githubusercontent.com//VanSilver/OTA_TEST/main/bin-version.txt"
-#define URL_fw_Bin "https://raw.githubusercontent.com//VanSilver/OTA_TEST/main/fw.bin"
+#define URL_fw_Version "https://raw.githubusercontent.com/VanSilver/OTA_TEST/main/bin-version.txt"
+#define URL_fw_Bin "https://raw.githubusercontent.com/VanSilver/OTA_TEST/main/fw.bin"
 
 void setup() {
 
@@ -83,7 +83,8 @@ void reconnect() {
 
 void firmwareUpdate(void) {
     WiFiClientSecure client;
-    client.setCACert(rootCACertificate);
+    // client.setCACert(rootCACertificate);
+     client.setInsecure();
     t_httpUpdate_return ret = httpUpdate.update(client, URL_fw_Bin);
 
     switch (ret) {
@@ -112,7 +113,9 @@ int FirmwareVersionCheck(void) {
     WiFiClientSecure * client = new WiFiClientSecure;
 
     if (client) {
-        client -> setCACert(rootCACertificate);
+        // client -> setCACert(rootCACertificate);
+        client -> setInsecure();
+
         HTTPClient https;
 
         if (https.begin( * client, FirmwareURL)) {
